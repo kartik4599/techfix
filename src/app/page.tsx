@@ -77,16 +77,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#f9fbf8] min-h-screen flex flex-col">
-      <Header />
-      <div className="flex flex-col gap-10 p-4 max-w-7xl mx-auto">
-        <HeroSection />
-        <WhyChooseUs />
-        <Courses />
-        <Reviews />
-        <FAQ />
-      </div>
-      <Footer />
-    </main>
+    <div className="flex flex-col gap-10 p-4 max-w-7xl mx-auto">
+      <HeroSection />
+      <WhyChooseUs />
+      <Courses />
+      <Reviews />
+      <FAQ />
+    </div>
   );
 }
