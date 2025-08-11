@@ -8,12 +8,16 @@ import { Menu, X } from "lucide-react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = ["Courses", "Reviews", "About Us", "Contact"];
+  const navItems = [
+    { name: "Courses", path: "/courses" },
+    { name: "About Us", path: "/about-us" },
+    { name: "Contact", path: "/contact-us" },
+  ];
 
   return (
     <header className="relative border-b border-[#eaf3e8] px-4 sm:px-6 lg:px-10 py-3">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4 text-[#111b0e]">
+        <Link href={"/"} className="flex items-center gap-4 text-[#111b0e]">
           <div className="size-4">
             {/* Logo SVG */}
             <svg viewBox="0 0 48 48" fill="none">
@@ -26,14 +30,17 @@ export default function Header() {
             </svg>
           </div>
           <h2 className="text-lg font-bold">TechFix Academy</h2>
-        </div>
-        
+        </Link>
         {/* Desktop Navigation */}
         <div className="hidden lg:flex flex-1 justify-end gap-8">
           <nav className="flex items-center gap-9">
             {navItems.map((item) => (
-              <Link key={item} href="#" className="text-sm font-medium">
-                {item}
+              <Link
+                key={item.name}
+                href={item.path}
+                className="text-sm font-medium"
+              >
+                {item.name}
               </Link>
             ))}
           </nav>
@@ -58,12 +65,12 @@ export default function Header() {
           <nav className="flex flex-col gap-4 p-4">
             {navItems.map((item) => (
               <Link
-                key={item}
-                href="#"
+                key={item.name}
+                href={item.path}
                 className="text-sm font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
             <Button className="bg-[#a1ee87] text-[#111b0e] rounded-full font-bold mt-2">
