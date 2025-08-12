@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import Header from "@/feature/home-page/components/Header";
 import Footer from "@/feature/home-page/components/Footer";
 
@@ -30,18 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class" // Uses 'class' attribute on html/body
-          defaultTheme="system" // Default theme based on system preference
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className="bg-[#f9fbf8] min-h-screen flex flex-col">
-            <Header />
-            {children}
-            <Footer />
-          </main>
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
