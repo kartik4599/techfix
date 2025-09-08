@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Learn smartphone repairing from industry experts through practical, hands-on training. Become a certified mobile technician and start your repair business.",
     images: [
       {
-        url: "https://your-domain.com/mobile-repair-og.jpg",
+        url: "https://areducation.co.in/Untitled-2.png",
         width: 1200,
         height: 630,
         alt: "Mobile Repair Academy - Professional Training",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Mobile Repairing Course - Turn Your Skills into a Career in 30 Days",
     description:
       "Learn smartphone repairing from industry experts through practical, hands-on training. Become a certified mobile technician in 30 days!",
-    images: ["https://your-domain.com/mobile-repair-twitter.jpg"],
+    images: ["https://areducation.co.in/Untitled-2.png"],
   },
   alternates: {
     canonical: "https://your-domain.com",
