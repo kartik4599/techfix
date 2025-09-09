@@ -3,49 +3,55 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col md:flex-row items-center py-20 gap-10">
-      <div className="md:w-1/2">
-        <p className="text-[#E63946] font-semibold text-lg">
-          LEARN THE SKILL OF THE FUTURE
-        </p>
-        <h1 className="text-4xl md:text-5xl font-extrabold my-4 leading-tight">
-          Become a Mobile Repairing Expert from Scratch
+    <section className="flex flex-col lg:flex-row items-center py-12 sm:py-16 md:py-20 lg:py-24 gap-8 lg:gap-12">
+      <div className="w-full lg:w-1/2 text-center lg:text-left">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight">
+          Not Just Repairing : <br />
+          Becoming a Pro
         </h1>
-        <p className="text-muted-foreground max-w-xl mb-8">
-          Learn everything you need to know about mobile repair, from basic
-          troubleshooting to complex hardware fixes.
+        <p className="text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-8 text-base sm:text-lg md:text-xl leading-relaxed">
+          From firmware flashing to eMMC & UFS replacements, AR Education
+          teaches you everything you need to become a professional mobile repair
+          expert.
         </p>
-        <div className="flex items-center space-x-6">
-          <Button className="bg-[#E63946] hover:bg-[#FF3B3F]">
-            BECOME A MEMBER
+        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-8 sm:mb-12">
+          <Button className="bg-[#E63946] hover:bg-[#FF3B3F] transition-colors rounded-md px-6 sm:px-8 py-3 sm:py-4 font-bold w-full sm:w-auto text-base sm:text-lg">
+            Explore Our Courses
           </Button>
-          <a
-            href="#"
-            className="flex items-center space-x-2 hover:text-[#E63946]"
+          <Button
+            variant="outline"
+            className="border-2 border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-all rounded-md px-6 sm:px-8 py-3 sm:py-4 font-bold w-full sm:w-auto text-base sm:text-lg"
           >
-            <PlayCircle size={40} />
-            <span className="font-semibold text-lg">Watch Video</span>
-          </a>
+            Power of three
+          </Button>
         </div>
-        <div className="mt-12">
-          <p className="text-muted-foreground text-lg font-semibold mb-4">
-            FEATURED ON:
+        <div>
+          <p className="text-gray-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">
+            FEATURED TOOLS:
           </p>
-          <div className="flex flex-wrap gap-8">
-            {["iFixit", "GSMArena", "TechCrunch", "The Verge"].map((brand) => (
-              <p key={brand} className="text-2xl font-bold">
-                {brand}
-              </p>
-            ))}
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 items-center">
+            <p className="text-lg sm:text-xl md:text-2xl font-bold">
+              Flash F64
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold">
+              Easyjtag plus
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold">UMT Tool</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold">
+              MIPITESTER
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold">Pandora</p>
           </div>
         </div>
       </div>
-      <div className="md:w-1/2">
-        <img
-          src="/hero-image.jpg"
-          alt="Mobile Repairing"
-          className="rounded-lg shadow-lg"
-        />
+      <div className="w-full lg:w-1/2">
+        <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl mx-auto h-64 sm:h-80 md:h-96 bg-gradient-to-br from-[#E63946] to-[#FF3B3F] rounded-2xl flex items-center justify-center">
+          <img
+            alt="Mobile Repair Training"
+            src="/hero_image.png"
+            className="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
       </div>
     </section>
   );

@@ -2,25 +2,38 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-center">
-      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
-        {[
-          { name: "Courses", path: "/courses" },
-          { name: "About Us", path: "/about-us" },
-          { name: "Contact", path: "/contact-us" },
-        ].map((link) => (
+    <footer className="bg-[#1C1C1C] p-6 sm:p-8 md:p-10 rounded-2xl mt-12 sm:mt-16 md:mt-20">
+      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 md:gap-0">
+        <p className="font-semibold text-sm sm:text-base">
+          &copy; 2025 AR Education. All rights reserved.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
           <Link
-            key={link.name}
-            href={link.path}
-            className="text-[#629550] text-sm sm:text-base hover:text-[#4a6e3b] transition-colors duration-200"
+            href="https://www.youtube.com/@AR_Education_1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#E63946] transition-colors text-sm sm:text-base"
           >
-            {link.name}
+            YouTube
           </Link>
-        ))}
+          <Link
+            href="https://www.facebook.com/people/AR-Education/61559961613637/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#E63946] transition-colors text-sm sm:text-base"
+          >
+            Facebook
+          </Link>
+          <Link
+            href="https://wa.me/918484020424"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#E63946] transition-colors text-sm sm:text-base"
+          >
+            WhatsApp
+          </Link>
+        </div>
       </div>
-      <p className="mt-6 sm:mt-8 text-[#629550] text-xs sm:text-sm">
-        ©2024 TechFix Academy. All rights reserved.
-      </p>
     </footer>
   );
 }
