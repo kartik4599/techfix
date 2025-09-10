@@ -10,7 +10,7 @@ export const metadata = {
 export default async function CourseDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string | string[] | undefined }>;
 }) {
   const id = (await params)?.id;
 
