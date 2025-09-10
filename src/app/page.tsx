@@ -87,32 +87,15 @@ export default function Page() {
         <Header />
 
         <main>
-          {/* Hero Section */}
           <Hero />
-
-          {/* Courses Section */}
           <CoursesSection />
-
-          {/* Why Choose Us Section */}
           <AboutInstructor />
-
-          {/* What You'll Learn Section */}
           <LearnSection />
-
-          {/* Testimonials Section */}
           <Testimonials />
-          {/* Impact Section */}
           <Impact />
-
-          {/* Instructor Section */}
           <Instructor />
-
           <FAQ />
-
-          {/* Call-to-Action Section */}
           <CalltoAction />
-
-          {/* Footer */}
           <Footer />
         </main>
       </div>

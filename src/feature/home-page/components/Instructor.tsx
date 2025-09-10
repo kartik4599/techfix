@@ -1,6 +1,6 @@
 const Instructor = () => {
   return (
-    <section className="py-12 sm:py-16 md:py-20">
+    <section id="instructor" className="py-12 sm:py-16 md:py-20">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="w-full lg:w-1/2 text-center lg:text-left">

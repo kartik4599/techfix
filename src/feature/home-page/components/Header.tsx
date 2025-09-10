@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 
 export default function Header() {
   return (
@@ -12,30 +18,30 @@ export default function Header() {
         <Link className="hover:text-[#E63946] transition-colors" href="/">
           Home
         </Link>
-        <Link className="hover:text-[#E63946] transition-colors" href="/tools">
-          Our Tools
+        <Link
+          className="hover:text-[#E63946] transition-colors"
+          href="#courses"
+        >
+          Courses
         </Link>
         <Link
           className="hover:text-[#E63946] transition-colors"
-          href="/courses/software-fundamentals"
+          href="#testimonials"
         >
-          Software Masterclass
+          Testimonials
         </Link>
         <Link
           className="hover:text-[#E63946] transition-colors"
-          href="/courses/emmc-ufs-mastery"
+          href="#instructor"
         >
-          eMMC & UFS Masterclass
+          Instructor
         </Link>
-        <Link className="hover:text-[#E63946] transition-colors" href="/videos">
-          Video Guides
-        </Link>
-        <Link
+        {/* <Link
           className="hover:text-[#E63946] transition-colors"
           href="/contact"
         >
           Contact
-        </Link>
+        </Link> */}
       </nav>
       <div className="flex gap-2">
         <SignedOut>

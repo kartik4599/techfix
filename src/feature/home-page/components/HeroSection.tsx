@@ -1,5 +1,6 @@
-import { PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { SignInButton } from "@clerk/nextjs";
 
 export default function Hero() {
   return (
@@ -15,15 +16,18 @@ export default function Hero() {
           expert.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-8 sm:mb-12">
-          <Button className="bg-[#E63946] hover:bg-[#FF3B3F] transition-colors rounded-md px-6 sm:px-8 py-3 sm:py-4 font-bold w-full sm:w-auto text-base sm:text-lg">
+          <Link
+            href="#courses"
+            className="bg-[#E63946] hover:bg-[#FF3B3F] transition-colors rounded-md px-6 sm:px-8 py-3 sm:py-4 font-bold w-full sm:w-auto text-base sm:text-lg"
+          >
             Explore Our Courses
-          </Button>
-          <Button
-            variant="outline"
-            className="border-2 border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-all rounded-md px-6 sm:px-8 py-3 sm:py-4 font-bold w-full sm:w-auto text-base sm:text-lg"
+          </Link>
+          <Link
+            href="/sign-in"
+            className="bg-transparent border border-[#E63946] text-[#E63946] transition-colors rounded-md px-6 sm:px-8 py-3 sm:py-4 font-bold w-full sm:w-auto text-base sm:text-lg"
           >
             Power of three
-          </Button>
+          </Link>
         </div>
         <div>
           <p className="text-gray-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">

@@ -1,6 +1,9 @@
 const Testimonials = () => {
   return (
-    <section className="bg-[#1C1C1C] py-12 sm:py-16 md:py-20 rounded-2xl my-12 sm:my-16 md:my-20">
+    <section
+      id="testimonials"
+      className="bg-[#1C1C1C] py-12 sm:py-16 md:py-20 rounded-2xl my-12 sm:my-16 md:my-20"
+    >
       <div className="px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 text-white">
           What Our Students Have to Say
