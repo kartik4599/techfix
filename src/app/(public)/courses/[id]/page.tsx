@@ -6,7 +6,6 @@ export const metadata = {
     "Master mobile repair with our comprehensive courses: Software, eMMC/UFS, and The Power of Three.",
 };
 
-// app/courses/[slug]/pag
 export default async function CourseDetailPage({
   params,
 }: {
