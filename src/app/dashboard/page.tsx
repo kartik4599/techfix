@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function DashboardPage() {
   return (
     <div className="bg-gray-50 text-gray-900 font-inter min-h-screen flex flex-col items-center justify-center p-4 sm:p-6">
@@ -33,12 +35,12 @@ export default function DashboardPage() {
           </div>
 
           {/* CTA Button */}
-          <a
+          <Link
             href="/courses"
             className="inline-block bg-[#E63946] hover:bg-[#FF3B3F] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
           >
             Explore Courses While You Wait
-          </a>
+          </Link>
         </div>
 
         {/* Footer */}

@@ -1,4 +1,5 @@
 import { courses } from "@/lib/data";
+import Link from "next/link";
 
 // app/courses/page.jsx
 export const metadata = {
@@ -60,18 +61,18 @@ export default function CoursesPage() {
 
                 {/* Buttons */}
                 <div className="flex flex-col gap-3">
-                  <a
+                  <Link
                     href={course.href}
                     className="bg-[#E63946] hover:bg-[#FF3B3F] transition-colors w-full py-3 font-bold text-sm sm:text-base text-center rounded-lg"
                   >
                     {course.cta}
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={course.curriculumHref}
                     className="border border-gray-600 hover:border-gray-400 text-white text-center py-3 px-4 rounded-lg font-medium text-xs sm:text-sm transition-colors duration-200"
                   >
                     View Curriculum Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -88,12 +89,12 @@ export default function CoursesPage() {
               Join thousands of successful technicians who have transformed
               their skills with our comprehensive training programs.
             </p>
-            <a
+            <Link
               href="/contact"
               className="inline-block bg-[#E63946] hover:bg-[#FF3B3F] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               Get Guidance
-            </a>
+            </Link>
           </div>
         </div>
       </div>
