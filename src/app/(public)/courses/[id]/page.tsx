@@ -1,4 +1,5 @@
 import { courses } from "@/lib/data";
+import Link from "next/link";
 
 export const metadata = {
   title: "Our Courses - AR Education",
@@ -20,12 +21,12 @@ export default async function CourseDetailPage({
       <div className="bg-[#111111] text-white min-h-screen flex items-center justify-center">
         <div className="text-center p-6">
           <h1 className="text-2xl font-bold mb-4">Course Not Found</h1>
-          <a
+          <Link
             href="/courses"
             className="text-[#E63946] hover:underline font-medium"
           >
             ← Back to All Courses
-          </a>
+          </Link>
         </div>
       </div>
     );
