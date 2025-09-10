@@ -67,38 +67,28 @@ export const metadata: Metadata = {
   },
 };
 
-import Header from "@/feature/home-page/components/Header";
 import Hero from "@/feature/home-page/components/HeroSection";
 import CoursesSection from "@/feature/home-page/components/Courses";
 import AboutInstructor from "@/feature/home-page/components/WhyChooseUs";
 import Testimonials from "@/feature/home-page/components/Testimonials";
 import Impact from "@/feature/home-page/components/Impact";
 import Instructor from "@/feature/home-page/components/Instructor";
-import Footer from "@/feature/home-page/components/Footer";
 import CalltoAction from "@/feature/home-page/components/Call-to-Action";
 import LearnSection from "@/feature/home-page/components/LearnSection";
 import FAQ from "@/feature/home-page/components/FAQ";
 
 export default function Page() {
   return (
-    <div className="bg-[#111111] text-white font-inter">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <Header />
-
-        <main>
-          <Hero />
-          <CoursesSection />
-          <AboutInstructor />
-          <LearnSection />
-          <Testimonials />
-          <Impact />
-          <Instructor />
-          <FAQ />
-          <CalltoAction />
-          <Footer />
-        </main>
-      </div>
-    </div>
+    <main>
+      <Hero />
+      <CoursesSection />
+      <AboutInstructor />
+      <LearnSection />
+      <Testimonials />
+      <Impact />
+      <Instructor />
+      <FAQ />
+      <CalltoAction />
+    </main>
   );
 }

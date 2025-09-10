@@ -1,49 +1,12 @@
+import { courses } from "@/lib/data";
 import Link from "next/link";
 
 export default function CoursesSection() {
-  const courses = [
-    {
-      title: "Software Masterclass",
-      subtitle: "The Ultimate Guide",
-      description:
-        "The essential course every mobile repair technician must master. Build a strong foundation in software repair before advancing to eMMC and UFS programming.",
-      details:
-        "5 Chapters | 50+ Topics | 4 Chipset Brands | Easy Hindi Language",
-      cta: "Enroll Now",
-      href: "/courses/software-fundamentals",
-      curriculumHref: "/courses/software-fundamentals#curriculum",
-      imageSrc: "/software.png",
-    },
-    {
-      title: "eMMC & UFS Repair",
-      subtitle: "Mastery Course",
-      description:
-        "Advanced chip-level training for technicians ready to master storage chip repair, data recovery, and replacement techniques.",
-      details:
-        "5 Chapters | 60+ Topics | 2 Tools Mastered | Easy Hindi Language",
-      cta: "Enroll Now",
-      href: "/courses/emmc-ufs-mastery",
-      curriculumHref: "/courses/emmc-ufs-mastery#curriculum",
-      imageSrc: "/eMMC.png",
-    },
-    {
-      title: "The Power of Three",
-      subtitle: "Complete Mobile Repair Mastery",
-      description:
-        "Master Software Fundamentals, eMMC, and UFS repair - all three essential skills in one comprehensive program.",
-      details:
-        "4 Modules | 100+ Topics | 3 Courses in One | Easy Hindi Language",
-      cta: "Enroll Now",
-      href: "/courses",
-      curriculumHref: "/courses#curriculum",
-      bgColor: "",
-      borderColor: "border-red-600",
-      imageSrc: "/power.png",
-    },
-  ];
-
   return (
-    <section id="courses" className="bg-[#F6E3C3] text-black py-12 sm:py-16 md:py-20 rounded-2xl my-12 sm:my-16 md:my-20">
+    <section
+      id="courses"
+      className="bg-[#F6E3C3] text-black py-12 sm:py-16 md:py-20 rounded-2xl my-12 sm:my-16 md:my-20"
+    >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -77,7 +40,7 @@ export default function CoursesSection() {
                 </p>
                 <div className="flex flex-col gap-3">
                   <Link
-                    href={course.href}
+                    href="sign-in"
                     className={`bg-red-600 hover:bg-red-700 transition-colors w-full py-3 font-bold text-sm sm:text-base text-center rounded-lg`}
                   >
                     {course.cta}

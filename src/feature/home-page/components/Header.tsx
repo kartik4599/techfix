@@ -11,9 +11,9 @@ import {
 export default function Header() {
   return (
     <header className="flex justify-between items-center py-4 md:py-6">
-      <div className="text-xl sm:text-2xl font-bold font-poppins">
+      <Link className="text-xl sm:text-2xl font-bold font-poppins" href="/">
         <span className="text-[#E63946]">AR</span> <span>EDUCATION</span>
-      </div>
+      </Link>
       <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 font-medium">
         <Link className="hover:text-[#E63946] transition-colors" href="/">
           Home
