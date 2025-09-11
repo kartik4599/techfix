@@ -175,7 +175,7 @@ export const courses: Course[] = [
       "Master Software Fundamentals, eMMC, and UFS repair - all three essential skills in one comprehensive program.",
     details: "4 Modules | 100+ Topics | 3 Courses in One | Easy Hindi Language",
     cta: "Enroll Now",
-    href: "/courses",
+    href: "/courses/power-of-three",
     curriculumHref: "/courses#curriculum",
     imageSrc: "/power.png",
     duration: "12 Weeks",

@@ -68,7 +68,7 @@ export default function CoursesPage() {
                     {course.cta}
                   </Link>
                   <Link
-                    href={course.curriculumHref}
+                    href={course.href}
                     className="border border-gray-600 hover:border-gray-400 text-white text-center py-3 px-4 rounded-lg font-medium text-xs sm:text-sm transition-colors duration-200"
                   >
                     View Curriculum Details
