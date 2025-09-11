@@ -1,5 +1,11 @@
 import { courses } from "@/lib/data";
 import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const metadata = {
   title: "Our Courses - AR Education",
@@ -34,63 +40,67 @@ export default async function CourseDetailPage({
 
   return (
     <div className="bg-[#111111] text-white font-inter min-h-screen">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Hero Section */}
-        <div className="bg-[#1C1C1C] rounded-2xl overflow-hidden shadow-xl mb-8 sm:mb-12">
-          <div className="md:flex">
-            <div className="md:w-1/3 p-6 sm:p-8 flex items-center justify-center bg-gradient-to-br from-[#E63946] to-[#FF3B3F]">
+        <div className="relative bg-gradient-to-br from-[#E63946]/90 to-[#FF3B3F]/80 rounded-3xl shadow-2xl overflow-hidden mb-12">
+          <div className="grid md:grid-cols-2 gap-8 items-center p-8 sm:p-12">
+            <div className="flex justify-center">
               <img
                 src={course.imageSrc}
                 alt={course.title}
-                className="w-full max-w-xs h-auto rounded-lg shadow-lg"
+                className="w-72 sm:w-80 h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition duration-300"
               />
             </div>
-            <div className="md:w-2/3 p-6 sm:p-8">
-              <span className="inline-block bg-gray-800 text-gray-300 text-xs sm:text-sm px-3 py-1 rounded-full mb-3">
+            <div>
+              <span className="inline-block bg-black/30 text-white text-xs sm:text-sm px-3 py-1 rounded-full mb-4">
                 {course.level}
               </span>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3">
                 {course.title}
               </h1>
-              <h2 className="text-xl sm:text-2xl text-[#E63946] font-bold mb-4">
+              <h2 className="text-xl sm:text-2xl text-yellow-300 font-semibold mb-5">
                 {course.subtitle}
               </h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-200 mb-6 leading-relaxed">
                 {course.description}
               </p>
-              <div className="grid grid-cols-2 gap-4 text-sm sm:text-base">
-                <div>
-                  <strong>Duration:</strong> {course.duration}
-                </div>
-                <div>
-                  <strong>Language:</strong> {course.language}
-                </div>
-                <div>
-                  <strong>Certificate:</strong> {course.certificate}
-                </div>
-                <div>
-                  <strong>Price:</strong>{" "}
-                  <span className="text-yellow-400 font-bold">
-                    {course.price}
-                  </span>
-                </div>
-              </div>
-              <button className="mt-6 bg-[#E63946] hover:bg-[#FF3B3F] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <button className="bg-black/80 hover:bg-black text-white font-bold py-3 px-6 rounded-xl shadow-lg transition transform hover:scale-105">
                 {course.cta}
               </button>
             </div>
           </div>
         </div>
 
+        {/* Course Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+          {[
+            { label: "Duration", value: course.duration },
+            { label: "Language", value: course.language },
+            { label: "Certificate", value: course.certificate },
+            { label: "Price", value: course.price },
+          ].map((stat, idx) => (
+            <div
+              key={idx}
+              className="bg-[#1C1C1C] rounded-xl p-5 text-center shadow-lg"
+            >
+              <p className="text-sm text-gray-400">{stat.label}</p>
+              <p className="text-lg font-bold text-white mt-1">{stat.value}</p>
+            </div>
+          ))}
+        </div>
+
         {/* What You'll Learn */}
-        <section className="mb-10 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold mb-5 border-b border-gray-700 pb-2">
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">
             What You’ll Learn
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-5">
             {course.outcomes.map((outcome, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <span className="text-[#E63946] mt-1">✅</span>
+              <div
+                key={idx}
+                className="bg-[#1C1C1C] p-4 rounded-lg flex items-start gap-3 shadow-md hover:shadow-xl transition"
+              >
+                <span className="text-[#E63946] text-lg">✔</span>
                 <p className="text-gray-300">{outcome}</p>
               </div>
             ))}
@@ -98,15 +108,15 @@ export default async function CourseDetailPage({
         </section>
 
         {/* Tools Covered */}
-        <section className="mb-10 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold mb-5 border-b border-gray-700 pb-2">
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">
             Tools You’ll Master
           </h2>
           <div className="flex flex-wrap gap-3">
             {course.toolsCovered.map((tool, idx) => (
               <span
                 key={idx}
-                className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm"
+                className="bg-gradient-to-r from-gray-800 to-gray-700 text-gray-200 px-5 py-2 rounded-full text-sm shadow hover:scale-105 transition"
               >
                 {tool}
               </span>
@@ -114,52 +124,61 @@ export default async function CourseDetailPage({
           </div>
         </section>
 
-        {/* Curriculum */}
-        <section className="mb-10 sm:mb-16" id="curriculum">
-          <h2 className="text-xl sm:text-2xl font-bold mb-5 border-b border-gray-700 pb-2">
+        {/* Curriculum (Accordion Style) */}
+        <section className="mb-14" id="curriculum">
+          <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">
             Curriculum
           </h2>
-          <div className="space-y-6">
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {course.curriculum.map((item, idx) => (
-              <div key={idx} className="bg-[#1C1C1C] p-5 rounded-xl">
-                <h3 className="text-lg font-bold mb-3">
-                  {item.chapter || item.module}
-                </h3>
-                {item.description && (
-                  <p className="text-gray-400 mb-3">{item.description}</p>
-                )}
-                {item.topics && (
-                  <ul className="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
-                    {item.topics.map((topic, tIdx) => (
-                      <li key={tIdx}>{topic}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+              <AccordionItem
+                key={idx}
+                value={`item-${idx}`}
+                className="bg-[#1C1C1C] rounded-xl shadow-md border-b-0"
+              >
+                <AccordionTrigger className="hover:no-underline p-5 text-lg font-semibold">
+                  <span className="text-left flex-1">
+                    {item.chapter || item.module}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-5 pb-5 pt-0">
+                  {item.description && (
+                    <p className="text-gray-400 mb-3">{item.description}</p>
+                  )}
+                  {item.topics && (
+                    <ul className="list-disc list-inside text-gray-300 space-y-1">
+                      {item.topics.map((topic, tIdx) => (
+                        <li key={tIdx}>{topic}</li>
+                      ))}
+                    </ul>
+                  )}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </section>
 
         {/* Prerequisites */}
-        <section className="mb-10 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold mb-5 border-b border-gray-700 pb-2">
+        <section className="mb-14">
+          <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">
             Prerequisites
           </h2>
-          <p className="text-gray-300 bg-[#1C1C1C] p-4 rounded-lg">
-            {course.prerequisites}
-          </p>
+          <div className="bg-yellow-500/10 border border-yellow-500/30 p-5 rounded-lg flex items-start gap-3">
+            <span className="text-yellow-400">⚡</span>
+            <p className="text-gray-200">{course.prerequisites}</p>
+          </div>
         </section>
 
-        {/* CTA */}
-        <div className="text-center py-8 sm:py-12 bg-[#1C1C1C] rounded-2xl">
-          <h3 className="text-xl sm:text-2xl font-bold mb-4">
-            Ready to Master Mobile Repair?
+        {/* Final CTA */}
+        <div className="text-center py-12 bg-gradient-to-r from-[#E63946] to-[#FF3B3F] rounded-3xl shadow-xl">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+            Ready to Get Started?
           </h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Join {course.title} today and start your journey to becoming a
-            certified mobile repair expert.
+          <p className="text-gray-100 mb-6 max-w-2xl mx-auto">
+            Join <strong>{course.title}</strong> today and start your journey to
+            becoming a certified expert.
           </p>
-          <button className="bg-[#E63946] hover:bg-[#FF3B3F] text-white font-bold py-3 px-8 sm:px-10 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+          <button className="bg-black hover:bg-gray-900 text-white font-bold py-3 px-10 rounded-xl text-lg shadow-lg transition transform hover:scale-105">
             Enroll Now
           </button>
         </div>
