@@ -157,3 +157,11 @@
 .animation-delay-3000 {
   animation-delay: 3s;
 }
+
+.cl-rootBox {
+  width: 100% !important;
+}
+
+.cl-cardBox {
+  width: 100% !important;
+}
