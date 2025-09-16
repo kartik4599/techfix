@@ -213,7 +213,7 @@ const mockCourseData: CourseData = {
   ],
 };
 
-export function CourseLearnSection({ courseId }: { courseId: string }) {
+export function CourseLearnSection() {
   const [courseData, setCourseData] = useState<CourseData>(mockCourseData);
   const [currentLecture, setCurrentLecture] = useState<Lecture | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
