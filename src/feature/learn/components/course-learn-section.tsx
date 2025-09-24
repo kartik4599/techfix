@@ -2,9 +2,7 @@
 
 import type React from "react";
 import Video from "next-video";
-import introVideo from "@/videos/get-started.mp4.json";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -88,7 +86,8 @@ const mockCourseData: CourseData = {
           duration: "3:21",
           completed: true,
           locked: false,
-          videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+          videoUrl:
+            "https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4",
           description:
             "Get introduced to the course structure and what you'll learn throughout this comprehensive React journey.",
           resources: [
@@ -102,7 +101,8 @@ const mockCourseData: CourseData = {
           duration: "4:05",
           completed: true,
           locked: false,
-          videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+          videoUrl:
+            "https://videocdn.cdnpk.net/videos/fd4984c9-1011-502e-95a1-3f695a573236/horizontal/previews/clear/small.mp4?token=exp=1758506166~hmac=c0940ebc3c4f1b50e9697983840442fbb1771570aa207765aaae1b376be5419a",
           description:
             "Overview of all the React concepts, tools, and techniques you'll master by the end of this course.",
           resources: [
@@ -119,7 +119,8 @@ const mockCourseData: CourseData = {
           duration: "6:12",
           completed: false,
           locked: false,
-          videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+          videoUrl:
+            "https://videocdn.cdnpk.net/videos/1113f4ac-8c4a-4963-84e7-81183cff108d/horizontal/previews/watermarked/small.mp4",
           description:
             "Learn about React's history, why it was created, and how it revolutionized frontend development.",
           resources: [],
@@ -137,7 +138,8 @@ const mockCourseData: CourseData = {
           duration: "8:10",
           completed: false,
           locked: false,
-          videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+          videoUrl:
+            "https://videocdn.cdnpk.net/videos/fd4984c9-1011-502e-95a1-3f695a573236/horizontal/previews/clear/small.mp4?token=exp=1758506166~hmac=c0940ebc3c4f1b50e9697983840442fbb1771570aa207765aaae1b376be5419a",
           description:
             "Understand JSX syntax and how it makes writing React components intuitive and powerful.",
           resources: [
@@ -159,7 +161,8 @@ const mockCourseData: CourseData = {
           duration: "12:30",
           completed: false,
           locked: false,
-          videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+          videoUrl:
+            "https://videocdn.cdnpk.net/videos/fd4984c9-1011-502e-95a1-3f695a573236/horizontal/previews/clear/small.mp4?token=exp=1758506166~hmac=c0940ebc3c4f1b50e9697983840442fbb1771570aa207765aaae1b376be5419a",
           description:
             "Build your first React component from scratch and understand the component-based architecture.",
           resources: [],
@@ -170,7 +173,8 @@ const mockCourseData: CourseData = {
           duration: "9:45",
           completed: false,
           locked: false,
-          videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+          videoUrl:
+            "https://videocdn.cdnpk.net/videos/fd4984c9-1011-502e-95a1-3f695a573236/horizontal/previews/clear/small.mp4?token=exp=1758506166~hmac=c0940ebc3c4f1b50e9697983840442fbb1771570aa207765aaae1b376be5419a",
           description:
             "Learn how to pass data between components using props and create reusable component interfaces.",
           resources: [
@@ -217,6 +221,7 @@ export function CourseLearnSection() {
   const [courseData, setCourseData] = useState<CourseData>(mockCourseData);
   const [currentLecture, setCurrentLecture] = useState<Lecture | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const firstLecture = courseData.sections[0]?.lectures[0];
@@ -404,9 +409,32 @@ export function CourseLearnSection() {
     </>
   );
 
+  useEffect(() => {
+    if (!videoRef.current || !currentLecture?.videoUrl) return;
+
+    const loadVideo = async () => {
+      try {
+        if (!videoRef.current || !currentLecture?.videoUrl) return;
+
+        // 2. fetch the file as binary data
+        const resp = await fetch(
+          "https://education-backend-kappa.vercel.app/video"
+        );
+        const blob = await resp.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        videoRef.current.src = blobUrl;
+        // videoRef.current.load();
+      } catch (err) {
+        console.error("Failed to load video", err);
+      }
+    };
+
+    loadVideo();
+  }, [currentLecture?.videoUrl]);
+
   return (
-    <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)] bg-background">
-      <div className="lg:hidden flex items-center justify-between p-4 border-b bg-card/50">
+    <div className="flex flex-col xl:flex-row h-[calc(100vh-4rem)] bg-background">
+      <div className="xl:hidden flex items-center justify-between p-4 border-b bg-card/50">
         <div>
           <h1 className="font-semibold text-lg text-balance">
             {courseData.title}
@@ -431,26 +459,26 @@ export function CourseLearnSection() {
           </SheetContent>
         </Sheet>
       </div>
-
-      <div className="hidden lg:flex w-80 border-r bg-card/50 flex-col">
+      <div className="hidden xl:flex w-80 border-r bg-card/50 flex-col">
         <CourseCurriculum />
       </div>
 
       <div className="flex-1 flex flex-col min-h-0">
         {currentLecture ? (
-          <>
-            <div className="bg-black aspect-video">
-              <Video
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                src={introVideo as any}
-                onEnded={handleVideoEnded}
-                className="w-full h-full object-contain"
-              />
+          <div className="w-full">
+            <div className="bg-black">
+              <div className="aspect-video w-full xl:w-[75%] mx-auto">
+                <Video
+                  ref={videoRef}
+                  onEnded={handleVideoEnded}
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
 
             <div className="flex-1 overflow-auto">
               <div className="p-4 sm:p-6">
-                <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+                <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
                   <div>
                     <h1 className="text-xl sm:text-2xl font-bold text-balance mb-2">
                       {currentLecture.title}
@@ -569,7 +597,7 @@ export function CourseLearnSection() {
                 </div>
               </div>
             </div>
-          </>
+          </div>
         ) : (
           <div className="flex-1 flex items-center justify-center p-4">
             <div className="text-center">
